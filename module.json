@@ -1,17 +1,35 @@
 {
-	"name": "followme",
-	"title": "Follow Me!",
-	"description": "Allows tokens to follow other tokens.",
-	"author": "Brunhine",
-	"version": "1.0.0",
-	"minimumCoreVersion": "0.5.7",
-	"compatibleCoreVersion": "0.5.7",
-	"esmodules": [
-		"scripts/followme.js"
-	],
-	"scripts": [],
-	"socket": true,
-	"url": "https://github.com/Brunhine/FollowMe",
-	"manifest": "https://raw.githubusercontent.com/Brunhine/FollowMe/master/src/module.json",
-	"download": "https://github.com/Brunhine/FollowMe/releases/download/v1.0.0/followme.zip"
+    "name": "FollowMe",
+    "title": "Follow Me!",
+    "description": "Allows tokens to follow other tokens.",
+    "version": "1.4.9",
+    "minimumCoreVersion": "9",
+    "compatibleCoreVersion": "9",
+    "author": "o_Ove",
+	"authors": [
+	  {
+      	"name": "o_Ove",
+      	"discord": "Ove#4315",
+      	"patreon": "https://www.patreon.com/drO_o"
+	  },{
+        "name": "Brunhine",
+        "patreon":"https://www.patreon.com/brunhine",
+        "ko-fi": "https://ko-fi.com/brunhine",
+        "twitter": "https://twitter.com/brunhine"
+	  }
+    ],
+    "dependencies":[
+        {"name":"socketlib"}
+    ],
+    "socket": true,
+    "esmodules": ["./script/followme.mjs"],
+    "url": "https://github.com/oOve/followme",
+    "download": "https://github.com/oOve/followme/archive/1.4.9.zip",
+    "manifest": "https://github.com/oOve/followme/releases/latest/download/module.json",
+
+    "license": "LICENSE",
+    "readme": "README.md",
+    "styles":[],
+    "packs": [],    
+    "library": false
 }
