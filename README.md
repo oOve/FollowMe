@@ -26,7 +26,7 @@ To install this module manually:
 
 
 # Compatibility
-Most recently tested on [Foundry VTT](https://foundryvtt.com/  "Foundry VTT") version `0.6.0`.
+Most recently tested on [Foundry VTT](https://foundryvtt.com/  "Foundry VTT") version `9`.
 
 # Feedback
 All feedback and suggestions are welcome. Please contact me on Discord (Brunhine#2182).
