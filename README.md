@@ -5,11 +5,16 @@
 
 <p align="center">
 
-
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/oOve/followme?style=flat-square)
-[![Become a Patron](https://img.shields.io/badge/support-patreon-orange.svg?style=flat-square&logo=patreon)](https://www.patreon.com/drO_o)
 
-</p>
+[![Become a Patron](https://img.shields.io/badge/support-patreon-orange.svg?style=flat-square&logo=patreon)](https://www.patreon.com/drO_o)
+ </p>
+
+# Usage
+Select your token, hover the mouse over the one you wish to follow and press the "F" key. Your token now follows behind maintaining the same distance. To stop following, simply move your token.
+
+![ezgif-3-5912d53231](https://user-images.githubusercontent.com/8543541/167747299-fa7949a4-64b7-4106-b378-a1dd4a253922.gif)
+
 
 # Installation
 It's always better and easier to install modules through in in app browser. Just search for "Follow Me"
