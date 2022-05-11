@@ -69,8 +69,7 @@ Hooks.on('updateToken', (token, change, options, user_id)=>{
 
   for (let follower of followers){
     let desc = follower.document.getFlag(MOD_NAME, FLAG_FOLLOWING);
-    desc.positions.push(p);    
-    console.error(desc.positions);
+    desc.positions.push(p);
     let sp = new utils.SimpleSpline(desc.positions);    
     let new_pos = sp.parametricPosition(sp.plen-desc.dist);
     sp.prune(sp.plen-desc.dist);
