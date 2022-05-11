@@ -15,6 +15,7 @@ Select your token, hover the mouse over the one you wish to follow and press the
 
 ![ezgif-3-5912d53231](https://user-images.githubusercontent.com/8543541/167747299-fa7949a4-64b7-4106-b378-a1dd4a253922.gif)
 
+The scrolling text above the token on follow and "unfollow" is enabled/disabled by the "core setting" called "Scrolling Status Text".
 
 # Installation
 It's always better and easier to install modules through in in app browser. Just search for "Follow Me"
