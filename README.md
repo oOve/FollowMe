@@ -34,9 +34,9 @@ To install this module manually:
 Most recently tested on [Foundry VTT](https://foundryvtt.com/  "Foundry VTT") version `9`.
 
 # Feedback
-All feedback and suggestions are welcome. Please contact me on Discord (Brunhine#2182).
+All feedback and suggestions are welcome. Please contact me on Discord (Ove#4315), join the discussion on the Modules' [Discord channel](https://discord.gg/5CCAhsKFDp)
 
-Any issues, bugs, or feature requests are always welcome to be reported directly to the [Issue Tracker](https://github.com/Brunhine/FollowMe/issues  "Issue Tracker")
+Any issues, bugs, or feature requests are always welcome to be reported directly to the [Issue Tracker](https://github.com/oOve/FollowMe/issues  "Issue Tracker")
 
 # Licensing
 **Follow Me** is a module for [Foundry VTT](https://foundryvtt.com/  "Foundry VTT") by Dr.O after original idea by Brunhine and is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
