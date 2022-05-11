@@ -2,7 +2,7 @@
     "name": "FollowMe",
     "title": "Follow Me!",
     "description": "Allows tokens to follow other tokens.",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "minimumCoreVersion": "9",
     "compatibleCoreVersion": "9",
     "author": "o_Ove",
@@ -18,13 +18,11 @@
         "twitter": "https://twitter.com/brunhine"
 	  }
     ],
-    "dependencies":[
-        {"name":"socketlib"}
-    ],
-    "socket": true,
+    "dependencies":[],
+    "socket": false,
     "esmodules": ["./script/followme.mjs"],
     "url": "https://github.com/oOve/followme",
-    "download": "https://github.com/oOve/followme/archive/1.5.0.zip",
+    "download": "https://github.com/oOve/followme/archive/1.5.1.zip",
     "manifest": "https://github.com/oOve/followme/releases/latest/download/module.json",
 
     "license": "LICENSE",

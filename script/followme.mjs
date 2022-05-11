@@ -112,6 +112,7 @@ function follow(){
 
 // Settings:
 Hooks.once("init", () => {
+  /*
   game.settings.register(MOD_NAME, "snap_to_grid", {
     name: "Snap to grid",
     hint: "Should the tokens automatically snap to grid, or preserve length",
@@ -120,6 +121,7 @@ Hooks.once("init", () => {
     type: Boolean,
     default: false
   });
+  */
 
   game.keybindings.register(MOD_NAME, "follow", {
     name: "FollowMe",
