@@ -57,7 +57,10 @@ Hooks.on('updateToken', (token, change, options, user_id)=>{
     let flw = token.getFlag(MOD_NAME, FLAG_FOLLOWING);
     let ldr = canvas.tokens.get(flw.who);
     scrollText(token.object, "Stopped following "+ldr?.name);
-    token.setFlag(MOD_NAME, FLAG_FOLLOWING, null);
+
+    if (token.isOwner){
+      token.setFlag(MOD_NAME, FLAG_FOLLOWING, null);
+    }
   }
 
   // Find tokens following this one
