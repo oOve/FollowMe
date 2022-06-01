@@ -29,10 +29,15 @@ To install this module manually:
 5. Don't forget to enable the module in game using the "Manage Module" button
 
 # Localization
+Current support for:
+ * English - https://github.com/oOve
+ * Your language ?
 
+
+If you want to translate this module, download [this file](lang/en.json) and translate it. After that open an issue sharing your translation. Also share the default name convention for your language. You can find that by either, finding a system or module that is already translated to your language and open its module.json. It should look something like this: ``` "languages": [ { "lang": "en", "name": "English", "path": "lang/en.json" } ```
 
 # Compatibility
-Most recently tested on [Foundry VTT](https://foundryvtt.com/  "Foundry VTT") version `9`.
+Tested on [Foundry VTT](https://foundryvtt.com/  "Foundry VTT") version `9`.
 
 # Feedback
 All feedback and suggestions are welcome. Please contact me on Discord (Ove#4315), join the discussion on the Modules' [Discord channel](https://discord.gg/5CCAhsKFDp)
