@@ -95,7 +95,7 @@ Hooks.on('updateToken', (token, change, options, user_id)=>{
     desc.positions.push(p);
     let sp = new utils.SimpleSpline(desc.positions);    
     let new_pos = sp.parametricPosition(sp.plen-desc.dist);
-    sp.prune(sp.plen-desc.dist);    
+    sp.prune(sp.plen-desc.dist);
     desc.positions = sp.p;
 
     if (game.settings.get(MOD_NAME, 'snap_to_grid')){
