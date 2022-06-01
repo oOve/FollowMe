@@ -30,7 +30,8 @@ To install this module manually:
 
 # Localization
 Current support for:
- * English - https://github.com/oOve
+ * English -- https://github.com/oOve
+ * German -- VTTOM
  * Your language ?
 
 
