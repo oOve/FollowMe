@@ -1,0 +1,6 @@
+{
+    "FOLLOWME.following"     : "OK, following {distance}{unit} behind {name}!",
+    "FOLLOWME.stopped"       : "Stopped following {name}!",
+    "FOLLOWME.followYourself": "Following myself; Belief in oneself is important!",
+    "FOLLOWME.key_hint"      : "Key to start following a target"    
+}

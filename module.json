@@ -24,7 +24,13 @@
     "url": "https://github.com/oOve/followme",
     "download": "https://github.com/oOve/followme/archive/1.5.3.zip",
     "manifest": "https://github.com/oOve/followme/releases/latest/download/module.json",
-
+    "languages": [
+        {
+          "lang": "en",
+          "name": "English",
+          "path": "lang/en.json"
+        }
+    ],
     "license": "LICENSE",
     "readme": "README.md",
     "styles":[],

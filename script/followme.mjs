@@ -16,11 +16,21 @@ const MOD_NAME = "FollowMe";
 const FLAG_FOLLOWING = "following";
 const fCache = {};
 
+function lang(k){
+  return game.i18n.localize("FOLLOWME."+k);
+}
+
 function addFollower(leader, follower){
   if (!canvas.scene.id in fCache){
     fCache[canvas.scene.id]={};
-    //TODO: Scan scene
   }
+}
+
+function strTemplate(s, o){
+  for (let k of Object.keys(o)){
+    s = s.replace('{'+k+'}', o[k]);
+  }
+  return s;
 }
 
 /**
@@ -56,8 +66,7 @@ Hooks.on('updateToken', (token, change, options, user_id)=>{
     // This movement came from another source than this module, lets stop following
     let flw = token.getFlag(MOD_NAME, FLAG_FOLLOWING);
     let ldr = canvas.tokens.get(flw.who);
-    scrollText(token.object, "Stopped following "+ldr?.name);
-
+    scrollText(token.object, strTemplate(lang("stopped"), {name:ldr?.name}));
     if (token.isOwner){
       token.setFlag(MOD_NAME, FLAG_FOLLOWING, null);
     }
@@ -101,17 +110,25 @@ function follow(){
   }
 
   for (let follower of Object.keys(followers)){
-    addFollower(leader.id, follower);
-    let token = canvas.tokens.get(follower);
-    let dist = Math.sqrt( (token.x-leader.x)**2 + (token.y-leader.y)**2);
-    let disp_dist = canvas.scene.dimensions.distance * dist/canvas.scene.dimensions.size;
-    scrollText(token, "Ok, following " + Math.round(disp_dist) + canvas.scene.data.gridUnits + " behind " + leader.name);    
-    token.document.setFlag(MOD_NAME, FLAG_FOLLOWING, 
-      {
-        who:leader.id, 
-        dist:dist, 
-        positions:[{x:leader.x, y:leader.y
-      }]});
+    if (leader.id === follower){
+      scrollText(leader, lang('followYourself'));
+    }else{
+      addFollower(leader.id, follower);
+      let token = canvas.tokens.get(follower);
+      let dist = Math.sqrt( (token.x-leader.x)**2 + (token.y-leader.y)**2);
+      let distance = Math.round( canvas.scene.dimensions.distance * dist/canvas.scene.dimensions.size );
+
+      let text = strTemplate(lang('following'), {distance:distance,
+                                                 unit: canvas.scene.data.gridUnits,
+                                                 name: leader.name});
+      scrollText(token, text);
+      token.document.setFlag(MOD_NAME, FLAG_FOLLOWING, 
+        {
+          who:leader.id, 
+          dist:dist, 
+          positions:[{x:leader.x, y:leader.y
+        }]});
+      }
   }
 }
 
@@ -131,7 +148,7 @@ Hooks.once("init", () => {
 
   game.keybindings.register(MOD_NAME, "follow", {
     name: "FollowMe",
-    hint: "Key to start following a target",
+    hint: lang('key_hint'),
     editable: [
       {
         key: "KeyF"
