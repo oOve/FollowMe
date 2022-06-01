@@ -1,11 +1,11 @@
 {
     "FOLLOWME.following"     : "OK, folge {name} im Abstand von {distance}{unit}!",
     "FOLLOWME.stopped"       : "Folge {name} nicht mehr!",
-    "FOLLOWME.collided"      : "Ich bin gegen eine Wand gelaufen; folge {name} nicht mehr!",
+    "FOLLOWME.collided"      : "Ich bin gegen eine Wand gelaufen; Folge {name} nicht mehr!",
     "FOLLOWME.followYourself": "Folge mir selbst; Das Vertrauen in sich selbst ist wichtig!",
     "FOLLOWME.key_hint"      : "Taste um das Folgen zu starten",
-    "FOLLOWME.snap"          : "Am Grid ausrichten",
-    "FOLLOWME.snap_hint"     : "Sollen die Token automatisch am Grid ausgerichtet werden, oder Abstand halten",
-    "FOLLOWME.collision"     : "Kollisionstest",
+    "FOLLOWME.snap"          : "Am Gitter ausrichten",
+    "FOLLOWME.snap_hint"     : "Sollen die Token automatisch am Gitter ausgerichtet werden, oder Abstand halten",
+    "FOLLOWME.collision"     : "Kollisionstests",
     "FOLLOWME.collision_hint": "Kollisionstest für Wände bevor das Folgen startet."
 }

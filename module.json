@@ -30,9 +30,9 @@
             "name": "English",
             "path": "lang/en.json"
         },{
-            "lang": "de-DE",
+            "lang": "de",
             "name": "deutsch",
-            "path": "lang/de-DE.json"
+            "path": "lang/de.json"
         }
     ],
     "license": "LICENSE",
