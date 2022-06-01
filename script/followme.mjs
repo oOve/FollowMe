@@ -57,6 +57,17 @@ function scrollText(token, text){
   });
 }
 
+function stopFollowing( token, whom, collided = false ){
+  if (collided){
+    scrollText(token.object, strTemplate(lang("collided"), {name:whom}));  
+  }else{
+    scrollText(token.object, strTemplate(lang("stopped"), {name:whom}));
+  }
+  if (token.isOwner){
+    token.setFlag(MOD_NAME, FLAG_FOLLOWING, null);
+  }
+}
+
 
 // Hook into token movemen. Push 'pushables' along with this movement, and cancel movement if pushing is not possible
 Hooks.on('updateToken', (token, change, options, user_id)=>{
@@ -66,10 +77,7 @@ Hooks.on('updateToken', (token, change, options, user_id)=>{
     // This movement came from another source than this module, lets stop following
     let flw = token.getFlag(MOD_NAME, FLAG_FOLLOWING);
     let ldr = canvas.tokens.get(flw.who);
-    scrollText(token.object, strTemplate(lang("stopped"), {name:ldr?.name}));
-    if (token.isOwner){
-      token.setFlag(MOD_NAME, FLAG_FOLLOWING, null);
-    }
+    stopFollowing(token, ldr?.name);
   }
 
   // Find tokens following this one
@@ -87,9 +95,22 @@ Hooks.on('updateToken', (token, change, options, user_id)=>{
     desc.positions.push(p);
     let sp = new utils.SimpleSpline(desc.positions);    
     let new_pos = sp.parametricPosition(sp.plen-desc.dist);
-    sp.prune(sp.plen-desc.dist);
+    sp.prune(sp.plen-desc.dist);    
     desc.positions = sp.p;
 
+    if (game.settings.get(MOD_NAME, 'snap_to_grid')){
+      new_pos = canvas.grid.getSnappedPosition( new_pos.x, new_pos.y );
+    }
+
+    if (game.settings.get(MOD_NAME, 'collisions')){
+      let ray = new Ray( follower.center, utils.vAdd(new_pos, { x: follower.bounds.width/2,
+                                                                y: follower.bounds.height/2} ) );
+      if (canvas.walls.checkCollision(ray)){
+        stopFollowing(follower.document, token.name, true);
+        // Do not apply update
+        continue;
+      }
+    }
     follower.document.update(
       {
         x: new_pos.x, 
@@ -126,25 +147,34 @@ function follow(){
         {
           who:leader.id, 
           dist:dist, 
-          positions:[{x:leader.x, y:leader.y
-        }]});
+          positions:[{x:token.x, y:token.y}, {x:leader.x, y:leader.y}]
+        });
       }
   }
 }
 
 
 // Settings:
-Hooks.once("init", () => {
-  /*
+Hooks.once("init", () => {  
+  
   game.settings.register(MOD_NAME, "snap_to_grid", {
-    name: "Snap to grid",
-    hint: "Should the tokens automatically snap to grid, or preserve length",
+    name: lang("snap"),
+    hint: lang("snap_hint"),
     scope: 'world',
     config: true,
     type: Boolean,
     default: false
   });
-  */
+  
+  game.settings.register(MOD_NAME, "collisions", {
+    name: lang("collision"),
+    hint: lang("collision_hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+
 
   game.keybindings.register(MOD_NAME, "follow", {
     name: "FollowMe",
