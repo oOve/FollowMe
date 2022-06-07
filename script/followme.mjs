@@ -93,13 +93,24 @@ Hooks.on('updateToken', (token, change, options, user_id)=>{
     }
     let desc = follower.document.getFlag(MOD_NAME, FLAG_FOLLOWING);
     desc.positions.push(p);
-    let sp = new utils.SimpleSpline(desc.positions);    
-    let new_pos = sp.parametricPosition(sp.plen-desc.dist);
-    sp.prune(sp.plen-desc.dist);
-    desc.positions = sp.p;
+    let sp = new utils.SimpleSpline(desc.positions);
 
+    let param = sp.plen-desc.dist;
+    let new_pos = sp.parametricPosition(param);
+    let data = {};
+
+    // If snap, snap new_pos
     if (game.settings.get(MOD_NAME, 'snap_to_grid')){
       new_pos = canvas.grid.getSnappedPosition( new_pos.x, new_pos.y );
+    }
+    data.x = new_pos.x;
+    data.y = new_pos.y;
+
+    // If orienting, add rotation to the update
+    if (game.settings.get(MOD_NAME, 'orienting')){
+      let der = sp.derivative(param);
+      let an = utils.vAngle(der)
+      if (!isNaN(an)) data.rotation = an;
     }
 
     if (game.settings.get(MOD_NAME, 'collisions')){
@@ -109,14 +120,15 @@ Hooks.on('updateToken', (token, change, options, user_id)=>{
         stopFollowing(follower.document, token.name, true);
         // Do not apply update
         continue;
-      }
+      }    
     }
+
+    sp.prune(param);
+    desc.positions = sp.p;
+    data['flags.FollowMe.following'] = desc
+
     follower.document.update(
-      {
-        x: new_pos.x, 
-        y: new_pos.y,
-        'flags.FollowMe.following': desc
-      }, {by_following:true});
+      data, {by_following:true});
   }
 
 });
@@ -174,6 +186,16 @@ Hooks.once("init", () => {
     type: Boolean,
     default: false
   });
+
+  game.settings.register(MOD_NAME, "orienting", {
+    name: lang("orienting"),
+    hint: lang("orienting_hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
+  
 
 
   game.keybindings.register(MOD_NAME, "follow", {
