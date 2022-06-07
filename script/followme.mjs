@@ -166,6 +166,21 @@ function follow(){
 }
 
 
+Hooks.on("updateCombat", (combat, change, settings, id)=>{  
+  if(!game.user.isGM) return;                                            // Not a DM
+  if(combat.previous.round !== 0 || combat.previous.turn !== 0) return;  // Not the start of combat
+  if(!game.settings.get(MOD_NAME, "combat")) return ;                    // We don't care (setting)
+
+  // We are the GM, And this is the very start of the combat.
+  canvas.tokens.placeables
+    .filter((t)=>t.document.getFlag(MOD_NAME, FLAG_FOLLOWING))
+    .map((t)=>{ let whom = canvas.tokens.get(t.document.getFlag(MOD_NAME,FLAG_FOLLOWING).who)?.name;
+                stopFollowing(t.document, whom, false);
+    });
+});
+
+
+
 // Settings:
 Hooks.once("init", () => {  
   
@@ -196,6 +211,14 @@ Hooks.once("init", () => {
     default: false
   });
   
+  game.settings.register(MOD_NAME, "combat", {
+    name: lang("combat"),
+    hint: lang("combat_hint"),
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false
+  });
 
 
   game.keybindings.register(MOD_NAME, "follow", {

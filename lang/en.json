@@ -4,11 +4,17 @@
     "FOLLOWME.collided"      : "I collided with a wall; stopping following {name}!",
     "FOLLOWME.followYourself": "Following myself; Belief in oneself is important!",
     "FOLLOWME.key_hint"      : "Key to start following a target",
+   
     "FOLLOWME.snap"          : "Snap to grid",
     "FOLLOWME.snap_hint"     : "Should the tokens automatically snap to grid, or preserve length",
+   
     "FOLLOWME.collision"     : "Test for collisions",
     "FOLLOWME.collision_hint": "Test for wall collisions before following.",
 
     "FOLLOWME.orienting"     : "Orient following tokens",
-    "FOLLOWME.orienting_hint": "Should tokens following another orient in their direction of movement?"
+    "FOLLOWME.orienting_hint": "Should tokens following another orient in their direction of movement?",
+
+    "FOLLOWME.combat"        : "Stop following in combat",
+    "FOLLOWME.combat_hint"   : "Should all tokens stop following each other when combat starts?"
+
 }
