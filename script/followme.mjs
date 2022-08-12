@@ -50,11 +50,15 @@ function emptyObj(obj){
  * @param {String} text The text to display above the token
  */
 function scrollText(token, text){
-  token.hud.createScrollingText(text, {
+  let config = {
+    x: token.x,
+    y: token.y,
+    text: text,
     anchor: CONST.TEXT_ANCHOR_POINTS.TOP, 
     fill:   "#FFFFFF", 
     stroke: "#FFFFFF"
-  });
+  }
+  canvas.interface.createScrollingText(token, text, config);
 }
 
 function stopFollowing( token, whom, collided = false ){
@@ -83,7 +87,7 @@ Hooks.on('updateToken', (token, change, options, user_id)=>{
   // Find tokens following this one
   let followers = canvas.tokens.placeables.filter( t=>{return t.document.getFlag(MOD_NAME, FLAG_FOLLOWING)?.who == token.id} );
 
-  let p = {x:token.data.x, y:token.data.y};
+  let p = {x:token.x, y:token.y};
   if (hasProperty(change,'x')) p.x=change.x;
   if (hasProperty(change,'y')) p.y=change.y;
 
@@ -135,24 +139,26 @@ Hooks.on('updateToken', (token, change, options, user_id)=>{
 
 
 function follow(){
-  let leader = canvas.tokens._hover;
-  let followers = canvas.tokens._controlled;
+  let leader = canvas.tokens.hover;
+  let followers = canvas.tokens.controlled;
 
   if (leader === null || emptyObj(followers)){
     return;
   }
+  //console.warn("leader", leader);
+  //console.warn("followers", followers);
 
-  for (let follower of Object.keys(followers)){
-    if (leader.id === follower){
+  for (let follower of followers){
+    if (leader.id === follower.id){
       scrollText(leader, lang('followYourself'));
     }else{
-      addFollower(leader.id, follower);
-      let token = canvas.tokens.get(follower);
+      addFollower(leader.id, follower.id);
+      let token = canvas.tokens.get(follower.id);
       let dist = Math.sqrt( (token.x-leader.x)**2 + (token.y-leader.y)**2);
       let distance = Math.round( canvas.scene.dimensions.distance * dist/canvas.scene.dimensions.size );
 
       let text = strTemplate(lang('following'), {distance:distance,
-                                                 unit: canvas.scene.data.gridUnits,
+                                                 unit: canvas.scene.grid.units,
                                                  name: leader.name});
       scrollText(token, text);
       token.document.setFlag(MOD_NAME, FLAG_FOLLOWING, 
