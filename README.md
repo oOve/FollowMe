@@ -1,3 +1,7 @@
+<h1>Notice!</h1>
+This is a branch of https://github.com/oOve/FollowMe to fix an issue that has been happening for the past few months where this module would not work if "test for collisions" was enabled. I will take this down once the original author either merges these or fixes the original code. 
+
+
 ![Logo](img/ogFollowMe.png)
 
 # Follow Me
