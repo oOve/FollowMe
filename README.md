@@ -1,3 +1,7 @@
+<h1>Notice!</h1>
+<p>This is a branch of https://github.com/oOve/FollowMe to fix an issue that has been happening for the past few months where this module would not work if "test for collisions" was enabled. I will take this down once the original author either merges these or fixes the original code. 
+</p>
+
 ![Logo](img/ogFollowMe.png)
 
 # Follow Me
@@ -24,7 +28,7 @@ To install this module manually:
 1. Inside the Foundry "Configuration and Setup" screen, click "Add-on Modules"
 2. Click "Install Module"
 3. In the "Manifest URL" field, paste the following url:
-`https://github.com/oOve/followme/releases/latest/download/module.json`
+`https://github.com/thejoester/followme/releases/latest/download/module.json`
 4. Click 'Install' and wait for installation to complete
 5. Don't forget to enable the module in game using the "Manage Module" button
 

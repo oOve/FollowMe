@@ -2,7 +2,7 @@
   "id": "FollowMe",
   "title": "Follow Me!",
   "description": "Allows tokens to follow other tokens.",
-  "version": "10.0.1",
+  "version": "10.0.3",
   "authors": [
     {
       "name": "o_Ove",
@@ -12,14 +12,19 @@
     {
       "name": "Brunhine",
       "flags": {}
+    },
+    {
+      "name": "thejoester",
+      "discord": "thejoester#3170",
+      "flags": {}
     }
   ],
   "esmodules": [
     "script/followme.mjs"
   ],
-  "url": "https://github.com/oOve/followme",
-  "download": "https://github.com/oOve/followme/archive/10.0.1.zip",
-  "manifest": "https://github.com/oOve/followme/releases/latest/download/module.json",
+  "url": "https://github.com/thejoester/followme",
+  "download": "https://github.com/thejoester/followme/archive/10.0.2.zip",
+  "manifest": "https://github.com/thejoester/followme/releases/latest/download/module.json",
   "languages": [
     {
       "lang": "en",
