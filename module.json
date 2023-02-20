@@ -2,7 +2,7 @@
   "id": "FollowMe",
   "title": "Follow Me!",
   "description": "Allows tokens to follow other tokens.",
-  "version": "10.0.1",
+  "version": "10.0.2",
   "authors": [
     {
       "name": "o_Ove",
@@ -18,7 +18,7 @@
     "script/followme.mjs"
   ],
   "url": "https://github.com/oOve/followme",
-  "download": "https://github.com/oOve/followme/archive/10.0.1.zip",
+  "download": "https://github.com/oOve/followme/archive/10.0.2.zip",
   "manifest": "https://github.com/oOve/followme/releases/latest/download/module.json",
   "languages": [
     {
