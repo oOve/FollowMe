@@ -232,7 +232,7 @@ Hooks.once("init", () => {
     hint: lang('key_hint'),
     editable: [
       {
-        key: "KeyF"
+        key: "KeyL"
       }
     ],
     onDown: () => { follow(); },
