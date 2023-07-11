@@ -73,7 +73,7 @@ function stopFollowing( token, whom, collided = false ){
 }
 
 
-// Hook into token movemen. Push 'pushables' along with this movement, and cancel movement if pushing is not possible
+// Hook into token movement. Push 'pushables' along with this movement, and cancel movement if pushing is not possible
 Hooks.on('updateToken', (token, change, options, user_id)=>{
   // Check if this is a "movement" 
   if (!hasProperty(change,'x')&&!(hasProperty(change, 'y'))){return true;}
