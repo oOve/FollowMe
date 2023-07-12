@@ -118,9 +118,7 @@ Hooks.on('updateToken', (token, change, options, user_id)=>{
     }
 
     if (game.settings.get(MOD_NAME, 'collisions')){
-      let ray = new Ray( follower.center, utils.vAdd(new_pos, { x: follower.bounds.width/2,
-                                                                y: follower.bounds.height/2} ) );
-      if (canvas.walls.checkCollision(ray, options={type: "move", mode: "any"})){
+      if (CONFIG.Canvas.polygonBackends.move.testCollision(follower.center, utils.vAdd(new_pos, { x: follower.bounds.width/2, y: follower.bounds.height/2} ), { type: "move", mode: "any" })) {
         stopFollowing(follower.document, token.name, true);
         // Do not apply update
         continue;
