@@ -1,4 +1,4 @@
-![Logo](img/ogFollowMe.png)
+![Logo](img/ogFollowMe.webp)
 
 # Follow Me
 **Follow Me** is a module for [Foundry VTT](https://foundryvtt.com/  "Foundry VTT") that allows tokens to follow or be followed by other tokens. This is completely system agnostic, and fully customizable to fit right into your game.
@@ -11,7 +11,7 @@
  </p>
 
 # Usage
-Select your token, hover the mouse over the one you wish to follow and press the "F" key. Your token now follows behind maintaining the same distance. To stop following, simply move your token.
+Select your token, hover the mouse over the one you wish to follow and press the "L" key. Your token now follows behind maintaining the same distance. To stop following, simply move your token.
 
 ![ezgif-3-5912d53231](https://user-images.githubusercontent.com/8543541/167747299-fa7949a4-64b7-4106-b378-a1dd4a253922.gif)
 
@@ -38,7 +38,7 @@ Current support for:
 If you want to translate this module, download [this file](lang/en.json) and translate it. After that open an issue sharing your translation. Also share the default name convention for your language. You can find that by either, finding a system or module that is already translated to your language and open its module.json. It should look something like this: ``` "languages": [ { "lang": "en", "name": "English", "path": "lang/en.json" } ```
 
 # Compatibility
-Tested on [Foundry VTT](https://foundryvtt.com/  "Foundry VTT") version `10`.
+Tested on [Foundry VTT](https://foundryvtt.com/  "Foundry VTT") version `11`.
 
 # Feedback
 All feedback and suggestions are welcome. Please contact me on Discord (Ove#4315), join the discussion on the Modules' [Discord channel](https://discord.gg/5CCAhsKFDp)

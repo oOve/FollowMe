@@ -73,7 +73,7 @@ function stopFollowing( token, whom, collided = false ){
 }
 
 
-// Hook into token movemen. Push 'pushables' along with this movement, and cancel movement if pushing is not possible
+// Hook into token movement. Push 'pushables' along with this movement, and cancel movement if pushing is not possible
 Hooks.on('updateToken', (token, change, options, user_id)=>{
   // Check if this is a "movement" 
   if (!hasProperty(change,'x')&&!(hasProperty(change, 'y'))){return true;}
@@ -118,9 +118,7 @@ Hooks.on('updateToken', (token, change, options, user_id)=>{
     }
 
     if (game.settings.get(MOD_NAME, 'collisions')){
-      let ray = new Ray( follower.center, utils.vAdd(new_pos, { x: follower.bounds.width/2,
-                                                                y: follower.bounds.height/2} ) );
-      if (canvas.walls.checkCollision(ray, options={type: "move", mode: "any"})){
+      if (CONFIG.Canvas.polygonBackends.move.testCollision(follower.center, utils.vAdd(new_pos, { x: follower.bounds.width/2, y: follower.bounds.height/2} ), { type: "move", mode: "any" })) {
         stopFollowing(follower.document, token.name, true);
         // Do not apply update
         continue;
@@ -232,7 +230,7 @@ Hooks.once("init", () => {
     hint: lang('key_hint'),
     editable: [
       {
-        key: "KeyF"
+        key: "KeyL"
       }
     ],
     onDown: () => { follow(); },
