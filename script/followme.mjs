@@ -68,7 +68,7 @@ function stopFollowing( token, whom, collided = false ){
     scrollText(token.object, strTemplate(lang("stopped"), {name:whom}));
   }
   if (token.isOwner){
-    token.setFlag(MOD_NAME, FLAG_FOLLOWING, null);
+    token.unsetFlag(MOD_NAME, FLAG_FOLLOWING);
   }
 }
 
